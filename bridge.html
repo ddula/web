@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>bridge</title>
+</head>
+
+<body>
+
+    <a href="#" id="myLink">Naver</a>
+
+    <script>
+        function sendMessageToFlutter(action, value = {}) {
+            NnBridge.postMessage(JSON.stringify({
+                action: action,
+                value: value
+            }));
+        }
+
+        function bridgeFunction() {
+            sendMessageToFlutter('url-popup', 'https://naver.com');
+        }
+
+        const link = document.getElementById('myLink');
+
+        link.addEventListener('click', function (event) {
+            // 기본 동작(페이지 이동 또는 새로고침)을 방지합니다.
+            event.preventDefault();
+
+            // 함수 실행
+            bridgeFunction();
+        });
+    </script>
+
+</body>
+
+</html>
