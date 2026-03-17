@@ -10,7 +10,7 @@
 
     <ul>
         <li><a href="#" id="url-popup">url-popup</a></li>
-        <li><a href="#" id="launch-external-app">launch-external-app</a></li>
+        <li><a href="#" id="launch-external-browser">launch-external-browser</a></li>
     </ul>
 
     <script>
@@ -31,14 +31,14 @@
             sendMessageToFlutter('url-popup', 'https://naver.com');
         });
 
-        const link2 = document.getElementById('launch-external-app');
+        const link2 = document.getElementById('launch-external-browser');
 
         link2.addEventListener('click', function (event) {
             // 기본 동작(페이지 이동 또는 새로고침)을 방지합니다.
             event.preventDefault();
 
             // 함수 실행
-            sendMessageToFlutter('launch-external-app', 'https://naver.com');
+            sendMessageToFlutter('launch-external-browser', 'https://naver.com');
         });
     </script>
 
