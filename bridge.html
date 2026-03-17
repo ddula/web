@@ -8,7 +8,9 @@
 
 <body>
 
-    <a href="#" id="myLink">Naver</a>
+    <ul>
+        <li><a href="#" id="url-popup">url-popup</a></li>
+        <li><a href="#" id="launch-external-app">launch-external-app</li>
 
     <script>
         function sendMessageToFlutter(action, value = {}) {
@@ -18,18 +20,24 @@
             }));
         }
 
-        function bridgeFunction() {
-            sendMessageToFlutter('url-popup', 'https://naver.com');
-        }
-
-        const link = document.getElementById('myLink');
+        const link = document.getElementById('url-popup');
 
         link.addEventListener('click', function (event) {
             // 기본 동작(페이지 이동 또는 새로고침)을 방지합니다.
             event.preventDefault();
 
             // 함수 실행
-            bridgeFunction();
+            sendMessageToFlutter('url-popup', 'https://naver.com');
+        });
+
+        const link2 = document.getElementById('launch-external-app');
+
+        link2.addEventListener('click', function (event) {
+            // 기본 동작(페이지 이동 또는 새로고침)을 방지합니다.
+            event.preventDefault();
+
+            // 함수 실행
+            sendMessageToFlutter('launch-external-app', 'https://naver.com');
         });
     </script>
 
